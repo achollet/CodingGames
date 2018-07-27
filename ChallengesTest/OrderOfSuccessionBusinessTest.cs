@@ -20,12 +20,43 @@ namespace ChallengesTest
             {
                 new string[]{"Elizabeth", string.Empty},
                 new string[]{"Charles", "Elizabeth"},
-                new string[]{"William", "Chales"}
+                new string[]{"William", "Charles"}
             };
         }
 
         [TestMethod]
-        public void CreateFamilyTreeFromListOfFamilyMembers_Test_ReturnOk()
+        public void CreateFamilyTreeFromListOfFamilyMembers_TreeHeadInitiate_ReturnOk()
+        {
+            var expect = new FamilyTreeNode("Elizabeth")
+                            {
+                                Parent = string.Empty
+                            };
+
+            var result = _orderOfSuccessionBusiness.CreateFamilyTreeFromListOfFamilyMembers(_familyMembers);
+
+            Assert.AreEqual(expect.Name, result.Name);
+            Assert.AreEqual(expect.Parent, result.Parent);
+        }
+
+        [TestMethod]
+        public void CreateFamilyTreeFromListOfFamilyMembers_AddOneChildToTheHead_ReturnOk()
+        {
+            var expect = new FamilyTreeNode("Elizabeth"){
+                Children = new List<FamilyTreeNode>{
+                    new FamilyTreeNode("Charles"){
+                        Parent = "Elizabeth"
+                    }
+                }
+            };
+
+            var result = _orderOfSuccessionBusiness.CreateFamilyTreeFromListOfFamilyMembers(_familyMembers);
+
+            Assert.IsTrue(result.Children.Any());
+            Assert.IsTrue(result.Children.Where(c => c.Name == expect.Children[0].Name).Any());            
+        }
+
+        [TestMethod]
+        public void CreateFamilyTreeFromListOfFamilyMembers_AddOneChildToHeadChild_ReturnOk()
         {
             var expect = new FamilyTreeNode("Elizabeth"){
                 Children = new List<FamilyTreeNode>{
@@ -44,9 +75,6 @@ namespace ChallengesTest
 
             var result = _orderOfSuccessionBusiness.CreateFamilyTreeFromListOfFamilyMembers(_familyMembers);
 
-            Assert.AreEqual(expect.Name, result.Name);
-            Assert.IsTrue(result.Children.Any());
-            Assert.IsTrue(result.Children.Where(c => c.Name == expect.Children[0].Name).Any());
             Assert.IsTrue(result.Children.First(c => c.Name == expect.Children[0].Name).Children.Any());
             Assert.IsTrue(result.Children.First(c => c.Name == expect.Children[0].Name).Children.Where(c => c.Name == expect.Children[0].Children[0].Name).Any());
         }
