@@ -1,5 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
+using System.Linq;
 using Challenges;
 
 namespace ChallengesTest
@@ -7,26 +8,47 @@ namespace ChallengesTest
     [TestClass]
     public class OrderOfSuccessionBusinessTest
     {
-        private List<Person> _familyMembers;
+        private List<string[]> _familyMembers;
         private OrderOfSucessionBusiness _orderOfSuccessionBusiness;
 
-        [[TestInitialize]
+        [TestInitialize]
         public void InitializeOrderOfSuccessionBusinessTest()
         {
             _orderOfSuccessionBusiness = new OrderOfSucessionBusiness();
 
-            _familyMembers = new List<Person>
+            _familyMembers = new List<string[]>
             {
-                new Person{Name = "Elizabeth", ParentName = string.Empty},
-                new Person{Name = "Charles", ParentName = "Elizabeth"},
-                new Person{Name = "William", ParentName = "Chales"}
+                new string[]{"Elizabeth", string.Empty},
+                new string[]{"Charles", "Elizabeth"},
+                new string[]{"William", "Chales"}
             };
-        }]
-
+        }
 
         [TestMethod]
         public void CreateFamilyTreeFromListOfFamilyMembers_Test_ReturnOk()
         {
+            var expect = new FamilyTreeNode("Elizabeth"){
+                Children = new List<FamilyTreeNode>{
+                    new FamilyTreeNode("Charles"){
+                        Parent = "Elizabeth",
+                        Children = new List<FamilyTreeNode>()
+                        {
+                            new FamilyTreeNode("William")
+                            {
+                                Parent = "Charles"
+                            }
+                        }
+                    }
+                }
+            };
+
+            var result = _orderOfSuccessionBusiness.CreateFamilyTreeFromListOfFamilyMembers(_familyMembers);
+
+            Assert.AreEqual(expect.Name, result.Name);
+            Assert.IsTrue(result.Children.Any());
+            Assert.IsTrue(result.Children.Where(c => c.Name == expect.Children[0].Name).Any());
+            Assert.IsTrue(result.Children.First(c => c.Name == expect.Children[0].Name).Children.Any());
+            Assert.IsTrue(result.Children.First(c => c.Name == expect.Children[0].Name).Children.Where(c => c.Name == expect.Children[0].Children[0].Name).Any());
         }
     }
 }

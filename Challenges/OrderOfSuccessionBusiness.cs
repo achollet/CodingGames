@@ -8,25 +8,16 @@ namespace Challenges
 
     public class FamilyTreeNode
     {
-        public Person Person { get; set; }
+        public string Name { get; set; }
         public List<FamilyTreeNode> Children { get; set; }
-        public Person Parent { get; set; }
+        public string Parent { get; set; }
 
-        public FamilyTreeNode(Person person)
+        public FamilyTreeNode(){}
+        public FamilyTreeNode(string personName)
         {
-            Person = person;
+            Name = personName;
             Children = new List<FamilyTreeNode>();
         }
-    }
-
-    public class Person
-    {
-        public string Name { get; set; }
-        public string ParentName { get; set; }
-        // public int YearOfBirth { get; set; }
-        // public string YearOfDeath { get; set; }
-        // public string Religion {get ; set ;}
-        // public string Gender { get; set; }
     }
 
     #endregion
@@ -34,34 +25,14 @@ namespace Challenges
     #region business logic
     public class OrderOfSucessionBusiness
     {
-        public FamilyTreeNode CreateFamilyTreeFromListOfFamilyMembers(List<Person> familyMembers)
+        public FamilyTreeNode CreateFamilyTreeFromListOfFamilyMembers(List<string[]> familyMembers)
         {
-            var headOfFamilyTree = familyMembers.First(m => (String.IsNullOrEmpty(m.ParentName) || String.IsNullOrWhiteSpace(m.ParentName)));
-
-            var headOfFamilyTreeNode = new FamilyTreeNode(new Person());
-
-            if (headOfFamilyTree != null)
-            {
-                headOfFamilyTreeNode.Person.Name = headOfFamilyTree.Name;
-            }
-
-            PopulateChildrenOfNode(headOfFamilyTree, familyMembers);
-
-
-            return headOfFamilyTreeNode
+            throw new NotImplementedException();
         }
 
-        private void PopulateChildrenOfNode(Person familyTreeNode, IEnumerable<Person> familyMembers)
+        private void PopulateNodeChildren(FamilyTreeNode familyTreeNode, IEnumerable<string[]> familyMembers)
         {
-            var children = familyMembers.Where(m => m.ParentName == familyTreeNode.Name);
-
-            if(children.Any())
-            {
-                foreach(var child in children)
-                {
-                    var childNode = new FamilyTreeNode(new Person)
-                }
-            }
+            throw new NotImplementedException();
         }
     }
     #endregion
