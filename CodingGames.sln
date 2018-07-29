@@ -1,4 +1,4 @@
-
+﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26124.0
@@ -6,6 +6,8 @@ MinimumVisualStudioVersion = 15.0.26124.0
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Challenges", "Challenges\Challenges.csproj", "{0DBF9687-D247-460C-A27D-593B2FC4DDDC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChallengesTest", "ChallengesTest\ChallengesTest.csproj", "{51BAD347-763E-4744-8CBF-ACBDEC4D282D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodingGamesChallenges", "CodingGamesChallenges\CodingGamesChallenges.csproj", "{BA1E5765-C00F-466E-9579-3AD622F09A0B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -44,5 +46,17 @@ Global
 		{51BAD347-763E-4744-8CBF-ACBDEC4D282D}.Release|x64.Build.0 = Release|x64
 		{51BAD347-763E-4744-8CBF-ACBDEC4D282D}.Release|x86.ActiveCfg = Release|x86
 		{51BAD347-763E-4744-8CBF-ACBDEC4D282D}.Release|x86.Build.0 = Release|x86
+		{BA1E5765-C00F-466E-9579-3AD622F09A0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA1E5765-C00F-466E-9579-3AD622F09A0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA1E5765-C00F-466E-9579-3AD622F09A0B}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{BA1E5765-C00F-466E-9579-3AD622F09A0B}.Debug|x64.Build.0 = Debug|Any CPU
+		{BA1E5765-C00F-466E-9579-3AD622F09A0B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{BA1E5765-C00F-466E-9579-3AD622F09A0B}.Debug|x86.Build.0 = Debug|Any CPU
+		{BA1E5765-C00F-466E-9579-3AD622F09A0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA1E5765-C00F-466E-9579-3AD622F09A0B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA1E5765-C00F-466E-9579-3AD622F09A0B}.Release|x64.ActiveCfg = Release|Any CPU
+		{BA1E5765-C00F-466E-9579-3AD622F09A0B}.Release|x64.Build.0 = Release|Any CPU
+		{BA1E5765-C00F-466E-9579-3AD622F09A0B}.Release|x86.ActiveCfg = Release|Any CPU
+		{BA1E5765-C00F-466E-9579-3AD622F09A0B}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

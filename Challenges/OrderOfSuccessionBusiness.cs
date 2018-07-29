@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Collections.Generic;
 
-namespace Challenges
+namespace Challenges.OrderOfSucession
 {
     #region classes definition
 
