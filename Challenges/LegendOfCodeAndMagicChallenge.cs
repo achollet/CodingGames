@@ -35,24 +35,11 @@ namespace Challenges.LegendOfCodeAndMagic
         public int CardDraw { get; set; }
     }
 
-<<<<<<< HEAD
-    public enum LocationEnum
+    public enum LocationType
     {
         MyDeck = 0,
         OpponentDeck = 1,
-        Board = -1
-    }
-    
-    public class LegendOfCodeAndMagicChallenge
-    {
-        public int round { get; set; }
-        public List<Player>  Players { get; set; }
-=======
-    public enum LocationType
-    {
-        Mine = 0,
-        OpponentHand = 1,
-        OnBoard = -1
+        BoardDeck = -1
     }
 
     public enum CardType
@@ -66,7 +53,6 @@ namespace Challenges.LegendOfCodeAndMagic
     {
         
 
->>>>>>> 8d7eb25b34d7120798f1621478a367d60698b1a6
 
     }
 
