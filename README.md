@@ -50,10 +50,10 @@ Si les PVs d'une créature tombent à 0 ou moins, alors elle est retirée du jeu
 
 Actions possibles :
 
-    * **SUMMON id** pour invoquer la créature *id*.
-    * **ATTACK id1 id2** pour attaquer la créature *id2* avec la créature *id1*.
-    * **ATTACK id -1** pour attaquer l'adversaire avec la créature *id*.
-    * PASS pour passer son tour.
+* **SUMMON id** pour invoquer la créature *id*.
+* **ATTACK id1 id2** pour attaquer la créature *id2* avec la créature *id1*.
+* **ATTACK id -1** pour attaquer l'adversaire avec la créature *id*.
+* PASS pour passer son tour.
 
 Un joueur peut faire autant d'actions valides qu'il le désire pendant un tour. Les commandes doivent êtres séparées entre elles par un point-virgule (;).
 
@@ -78,10 +78,10 @@ Votre code ne répond pas dans les temps ou retourne une commande non reconnue.
 
 2 premières lignes : pour chaque joueur, playerHealth, playerMana, playerDeck et playerRune:
 
-    Un entier **playerHealth** : le total de PVs restants du joueur.
-    Un entier **playerMana** : le mana maximum du joueur.
-    Un entier **playerDeck** : le nombre de cartes restantes dans le deck du joueur.
-    Un entier **playerRune** : à ignorer dans cette ligue
+Un entier **playerHealth** : le total de PVs restants du joueur.
+Un entier **playerMana** : le mana maximum du joueur.
+Un entier **playerDeck** : le nombre de cartes restantes dans le deck du joueur.
+Un entier **playerRune** : à ignorer dans cette ligue
 
 L'entrée du joueur actif arrive en premier suivi de l'entrée correspondant à son adversaire.
 
@@ -93,33 +93,35 @@ Ligne suivante : un entier **cardCount**, le nombre total de cartes sur le plate
 
 cardCount lignes suivantes : pour chaque carte, **cardNumber, instanceId, location, cardType, cost, attack, defense, abilities, myhealthChange, opponentHealthChange** et **cardDraw**:
 
-    Un entier **cardNumber** : l'identifiant de la carte (voir la liste complète).
-    Un entier **instanceId** : l'identifiant représentant l'instance de la carte (il peut y avoir plusieurs instances de la même carte dans une même partie).
-    Un entier **location**:
-       * 0 : dans la main du joueur actif
-       * 1 : sur le plateau de jeu, du côté du joueur actif
-       * -1 : sur le plateau de jeu, du côté de son adversaire
-    Un entier **cardType**: toujours 0 dans cette ligue.
-    Un entier **cost** : le coût en mana d'une carte,
-    Un entier **attack** : les caractéristiques d'attaque d'une créature.
-    Un entier **defense** : les caractéristiques de défense d'une créature.
-    Un String **abilities** de taille 6: à ignorer dans cette ligue.
-    Un entier **myHealthChange** : à ignorer dans cette ligue.
-    Un entier **opponentHealthChange** : à ignorer dans cette ligue.
-    Un entier **cardDraw** : à ignorer dans cette ligue.
+Un entier **cardNumber** : l'identifiant de la carte (voir la liste complète).
+Un entier **instanceId** : l'identifiant représentant l'instance de la carte (il peut y avoir plusieurs instances de la même carte dans une même partie).
+Un entier **location**:
+
+* 0 : dans la main du joueur actif
+* 1 : sur le plateau de jeu, du côté du joueur actif
+* -1 : sur le plateau de jeu, du côté de son adversaire
+
+Un entier **cardType**: toujours 0 dans cette ligue.
+Un entier **cost** : le coût en mana d'une carte,
+Un entier **attack** : les caractéristiques d'attaque d'une créature.
+Un entier **defense** : les caractéristiques de défense d'une créature.
+Un String **abilities** de taille 6: à ignorer dans cette ligue.
+Un entier **myHealthChange** : à ignorer dans cette ligue.
+Un entier **opponentHealthChange** : à ignorer dans cette ligue.
+Un entier **cardDraw** : à ignorer dans cette ligue.
 
 #### Sortie pour un tour de jeu du Draft
 
-    **PICK nb** où nb vaut 0, 1 ou 2 pour choisir l'une des trois cartes proposées à ajouter dans son deck.
-    **PASS** pour ne rien faire (sélectionne la première carte par défaut).
+**PICK nb** où nb vaut 0, 1 ou 2 pour choisir l'une des trois cartes proposées à ajouter dans son deck.
+**PASS** pour ne rien faire (sélectionne la première carte par défaut).
 
 #### Sortie pour un tour de jeu de la Bataille
 
 Les actions disponibles sont les suivantes :
 
-    **SUMMON id** pour invoquer une créature ayant pour identifiant (d'instance) id depuis la main du joueur.
-    **ATTACK idAttacker idTarget** pour attaquer une créature adverse d'identifiant (d'instance) idTarget ou l'adversaire (identifiant -1) avec une créature d'identifiant (d'instance) idAttacker.
-    **PASS** pour ne rien faire et passer son tour.
+**SUMMON id** pour invoquer une créature ayant pour identifiant (d'instance) id depuis la main du joueur.
+**ATTACK idAttacker idTarget** pour attaquer une créature adverse d'identifiant (d'instance) idTarget ou l'adversaire (identifiant -1) avec une créature d'identifiant (d'instance) idAttacker.
+**PASS** pour ne rien faire et passer son tour.
 
 Chaque joueur peut utiliser plusieurs de ces commandes en les séparant par un point-virgule ;.
 Chaque joueur peut ajouter du texte à la suite de ses commandes. Les messages seront affichés par le lecteur de parties.

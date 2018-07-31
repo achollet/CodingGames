@@ -9,14 +9,15 @@ namespace ChallengesTest
         private LegendOfCodeAndMagicChallenge _legendOfCodeAndMagicChallenge;
 
         [TestInitialize]
-        public void InitializeLegendOfCodeAndMagicChallengeTest()
+        public void Init()
         {
             _legendOfCodeAndMagicChallenge = new LegendOfCodeAndMagicChallenge();
         }
+
         [TestMethod]
-        public void MyTestMethod()
+        public void Test1()
         {
-            
-        }    
-    } 
+            Assert.IsTrue(true);
+        }
+    }
 }
