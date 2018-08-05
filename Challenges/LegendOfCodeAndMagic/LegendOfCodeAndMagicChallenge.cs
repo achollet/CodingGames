@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Collections.Generic;
 
 namespace Challenges.LegendOfCodeAndMagic
@@ -51,7 +52,22 @@ namespace Challenges.LegendOfCodeAndMagic
     #region business classes
     public class LegendOfCodeAndMagicChallenge
     {
-        
+        public string PickCardFromBoardDeck(IEnumerable<Card> boardDeck)
+        {
+            var maxAttack = 0;
+            var cardId = 0;
+
+            boardDeck.ToList().ForEach(c => 
+            {
+                if (c.AttackPoints > maxAttack)
+                {
+                    maxAttack = c.AttackPoints;
+                    cardId = c.CardNumber;
+                }
+            });
+
+            return $"PICK {cardId}";
+        }
 
 
     }
